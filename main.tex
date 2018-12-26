@@ -1,0 +1,278 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Thesis / Project Report
+% LaTeX Template
+% Version 2.0 (08/04/16)
+%
+% Author:
+% Siddhant Shrivastava
+% https://github.com/sidcode/bits-pilani-thesis-template-latex
+%
+% This template is heavily based on the work of Darshit Shah, Steven Gunn and Sunil Patel
+% Darshit Shah
+% https://github.com/darnir/BPHC-LaTeX-Report-Class
+% Steven Gunn
+% http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/
+% and
+% Sunil Patel
+% http://www.sunilpatel.co.uk/thesis-template/
+%
+% License:
+% CC BY-NC-SA 4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+%
+% Note:
+% Make sure to edit document variables in the Thesis.cls file
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%-------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+\documentclass[11pt, a4paper, oneside]{Thesis} % Paper size, default font size
+                                               % and one-sided paper
+
+
+
+
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+
+%-------------------------------------------------------------------------------
+%   MY PACKAGES
+\usepackage{float}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{times}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{physics}
+\usepackage[version=4]{mhchem}
+\usepackage{hepnames}
+\usepackage{blindtext}
+\usepackage{todonotes}
+
+%---------------------------------------
+%   MY EDITED COMMANDS
+%---------------------------------------
+
+%   PROGRAMMING
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+
+
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+
+
+
+%-------------------------------------------------------------------------------
+
+
+
+
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{Bibliography.bib}
+
+\title{\ttitle} % Defines the thesis title - don't touch this
+
+\begin{document}
+
+\frontmatter % Use roman numbering style (i, ii...) for the pre-content pages
+
+\setstretch{1.3} % Line spacing of 1.3
+
+% Define page headers using FancyHdr package and set up for one-sided printing
+\fancyhead{} % Clears all page headers and footers
+\rhead{\thepage} % Sets the right side header to show the page number
+\lhead{} % Clears the left side page header
+
+\pagestyle{fancy} % Finally, use the "fancy" page style to implement the
+                  %FancyHdr headers
+
+% Input all the variables used in the document. Please fill out the
+% variables.tex file with all your details.
+
+
+\input{variables}
+%-------------------------------------------------------------------------------
+%   NON-CONTENT PAGES
+%-------------------------------------------------------------------------------
+\maketitle
+\Declaration
+\Certificate
+\Quotation{Which is it, of the favours of your Lord, that ye deny?}{The Qur'an 55:13}
+
+\begin{abstract}
+Observations indicate that universe is dominated by dark energy, with negative pressure. Cosmological constant is one of the expected candidates for dark energy. But it also raises a fundamental question that why cosmological constant is of the order of ambient density today? It is expected that the cosmological constant need not to be a constant parameter in a theory of quantum gravity but a fluctuating one. Ahmed et al. $(2004)$ showed that, for flat universe, this ansatz provides a cosmological constant which fluctuates about zero and which is comparable to the ambient energy density at all times. Using the same arguments, we aim to find the fluctuations in cosmological constant for a closed universe.
+\end{abstract}
+
+\begin{acknowledgements}
+The acknowledgements and the people to thank go here, don't forget to include
+your project advisor\ldots
+\end{acknowledgements}
+
+%-------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%-------------------------------------------------------------------------------
+
+% The page style headers have been "empty" all this time, now use the "fancy"
+% headers as defined before to bring them back
+\pagestyle{fancy}
+
+\lhead{\emph{Contents}} % Set the left side page header to "Contents"
+\tableofcontents % Write out the Table of Contents
+
+% Set the left side page header to "List of Figures"
+\lhead{\emph{List of Figures}}
+\listoffigures % Write out the List of Figures
+
+ % Set the left side page header to "List of Tables"
+\lhead{\emph{List of Tables}}
+\listoftables % Write out the List of Tables
+
+%-------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%-------------------------------------------------------------------------------
+
+\clearpage % Start a new page
+
+ % Set the line spacing to 1.5, this makes the following tables easier to read
+\setstretch{1.5}
+
+\lhead{\emph{Abbreviations}} % Set the left side page header to "Abbreviations"
+\listofsymbols{ll} % Include a list of Abbreviations (a table of two columns)
+{
+\textbf{FLRW} & \textbf{F}riedmann--\textbf{L}ema\^{i}tre--\textbf{R}obertson--\textbf{W}alker \\
+
+\textbf{HCEq} & \textbf{H}amiltonian \textbf{C}onstraint \textbf{Eq}uation \\
+
+\textbf{AccEq} & \textbf{Acc}eleration \textbf{Eq}uation \\
+
+\textbf{TrEq} & \textbf{Tr}ace \textbf{Eq}uation \\
+
+
+%\textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+}
+
+%-------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%-------------------------------------------------------------------------------
+
+\clearpage % Start a new page
+
+% Set the left side page header to "Physical Constants"
+\lhead{\emph{Physical Constants}}
+
+%   DECLARED SI UNITS
+% \DeclareSIUnit\parsec{pc}
+% \DeclareSIUnit\lightyear{ly}
+% \DeclareSIUnit\year{yr}
+% \DeclareSIUnit\erg{erg}
+% \DeclareSIPrefix\billion{B}{9}
+% \DeclareSIUnit\solarlum{L_\odot}
+% \DeclareSIUnit\solarmass{M_\odot}
+% \DeclareSIUnit\solarlumv{L_{\odot,V}}
+
+ % Include a list of Physical Constants (a four column table)
+\listofconstants{lrcl}
+{
+% Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+
+Speed of Light in Vacuum & $c$ & $=$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+
+Newtonian Constant of Gravitation & $G$ & $=$ & \SI{6.674 08 (31) e-11}{\raiseto{3}\meter\raiseto{-1}\kilogram\raiseto{-2}\second} \\
+
+Boltzmann Constant & $k_\text{B}$ & $=$ & \SI{1.380 648 52 (79) e-23}{\joule\per\kelvin} \\
+
+Planck Constant & $h$ & $=$ & \SI{6.626 070 040 (81) e-34}{\joule\second} \\
+
+Reduced Planck Constant & $\hbar = \dfrac{h}{2\pi}$ & $=$ & \SI{1.054 571 800 (13) e-34}{\joule\second} \\
+
+Planck Length & $l_\text{P} = \sqrt{\dfrac{\hbar G}{c^3}}$ & $=$ & \SI{1.616 229 (38) e-35}{\meter} \\
+
+Planck Mass & $m_\text{P} = \sqrt{\dfrac{\hbar c}{G}}$ & $=$ & \SI{2.176 470 (51) e-8}{\kilogram} \\
+
+Planck Time & $t_\text{P} = \sqrt{\dfrac{\hbar G}{c^5}}$ & $=$ & \SI{5.391 16 (13) e-44}{\second} \\
+
+Planck Temperature & $T_\text{P} = \sqrt{\dfrac{\hbar c^5}{G k_\text{B}^2}}$ & $=$ & \SI{1.416 808 (33) e32}{\kelvin} \\
+
+% Constant Name & Symbol & = & Constant Value (with units) \\
+}
+
+%-------------------------------------------------------------------------------
+%	SYMBOLS
+%-------------------------------------------------------------------------------
+
+\clearpage % Start a new page
+
+\lhead{\emph{Glossary}} % Set the left side page header to "Symbols"
+
+\listofnomenclature % List the nomenclature. (We use the glossaries package)
+
+%-------------------------------------------------------------------------------
+%	DEDICATION
+%-------------------------------------------------------------------------------
+
+\setstretch{1.3} % Return the line spacing back to 1.3
+
+\pagestyle{empty} % Page style needs to be empty for this page
+
+% Dedication text
+\Dedicatory{Dedicate this to someone, anyone.}
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+%-------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%-------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{fancy} % Return the page headers back to the "fancy" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\input{Chapters/Chapter1}
+%\input{Chapters/Chapter2}
+%\input{Chapters/Chapter3}
+%\input{Chapters/Chapter4}
+%\input{Chapters/Chapter5}
+%\input{Chapters/Chapter6}
+%\input{Chapters/Chapter7}
+
+%-------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%-------------------------------------------------------------------------------
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices
+% folder
+% Uncomment the lines as you write the Appendices
+
+\input{Appendices/AppendixA}
+%\input{Appendices/AppendixB}
+%\input{Appendices/AppendixC}
+
+\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+
+\backmatter
+
+%-------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%-------------------------------------------------------------------------------
+
+\label{Bibliography}
+
+\lhead{\emph{Bibliography}} % Change the page header to say "Bibliography"
+
+\printbibliography
+
+\end{document}
